@@ -1,0 +1,16 @@
+{
+  "name": "school-api",
+  "version": "1.0.0",
+  "description": "The API for the student cafe at Hasseris School in Aalborg",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "api",
+    "school",
+    "mongo"
+  ],
+  "author": "Teodor Garzdin <teodorgarzedin@gmail.com>",
+  "license": "MIT"
+}
