@@ -3,7 +3,7 @@ var bodyParser = require('body-parser')
 var mongoose = require('mongoose');
 var passport = require('passport');
 var GoogleStrategy = require('./controllers/auth').strategy;
-var controllers = require('./controller/all');
+var controllers = require('./controllers/all');
 
 mongoose.connect('mongodb://db:' + process.env.DB_PORT + '/app', function(error) {
   if (error) {
