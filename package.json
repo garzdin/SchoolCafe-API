@@ -12,5 +12,8 @@
     "mongo"
   ],
   "author": "Teodor Garzdin <teodorgarzedin@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "passport-google-oauth20": "^1.0.0"
+  }
 }
