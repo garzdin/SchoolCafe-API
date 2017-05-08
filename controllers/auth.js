@@ -38,7 +38,8 @@ var callback = function(req, res, next) {
     if (!user) { return res.redirect('/login'); }
     req.logIn(user, function(err) {
       if (err) { return next(err); }
-      return res.json({"token": jwt.encode({user_id: user._id}, process.env.JWT_SECRET)});
+      var token = jwt.encode({user_id: user._id}, process.env.JWT_SECRET);
+      return res.redirect('/token/' + token); // TODO: Modify to point to React app and React extracts the token from the query string in the componentWillLoad method
     });
   })(req, res, next);
 };
