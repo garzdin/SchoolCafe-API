@@ -14,6 +14,8 @@
   "author": "Teodor Garzdin <teodorgarzedin@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.17.1",
+    "mongoose": "^4.9.8",
     "passport": "^0.3.2",
     "passport-google-oauth20": "^1.0.0"
   }
