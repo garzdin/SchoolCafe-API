@@ -38,7 +38,7 @@ var callback = function(req, res, next) {
     if (!user) { return res.redirect('/login'); }
     req.logIn(user, function(err) {
       if (err) { return next(err); }
-      return response.json({"token": jwt.encode({user_id: user._id}, process.env.JWT_SECRET)});
+      return res.json({"token": jwt.encode({user_id: user._id}, process.env.JWT_SECRET)});
     });
   })(req, res, next);
 };
