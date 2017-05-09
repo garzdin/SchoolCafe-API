@@ -39,7 +39,7 @@ var callback = function(req, res, next) {
     if (!user) { return res.redirect(reactBaseURL + '/login'); }
     req.logIn(user, function(err) {
       if (err) { return next(err); }
-      return res.redirect(reactBaseURL);
+      return res.redirect(reactBaseURL + '/');
     });
   })(req, res, next);
 };
