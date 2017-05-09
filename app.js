@@ -33,7 +33,7 @@ app.get('/auth/google/callback', controllers.auth.callback);
 
 app.use(controllers.auth.middleware);
 
-app.get('/logout', controllers.auth.logout)
+app.get('/auth/logout', controllers.auth.logout)
 
 app.listen(process.env.PORT, function() {
   console.log("Application running on http://localhost:8000");
