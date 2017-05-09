@@ -2,6 +2,7 @@ var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth20').Strategy;
 var User = require('../models/user').model;
 var jwt = require('jwt-simple');
+var reactBaseURL = require('../config').reactBaseURL;
 
 var strategy = new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
@@ -30,22 +31,35 @@ var strategy = new GoogleStrategy({
   }
 );
 
-var redirectWithScope = passport.authenticate('google', { scope: ['profile', 'email'] })
+var redirectWithScope = passport.authenticate('google', { scope: ['profile', 'email'] });
 
 var callback = function(req, res, next) {
   passport.authenticate('google', function(err, user, info) {
     if (err) { return next(err); }
-    if (!user) { return res.redirect('/login'); }
+    if (!user) { return res.redirect(reactBaseURL + '/login'); }
     req.logIn(user, function(err) {
       if (err) { return next(err); }
-      var token = jwt.encode({user_id: user._id}, process.env.JWT_SECRET);
-      return res.redirect('/token/' + token); // TODO: Modify to point to React app and React extracts the token from the query string in the componentWillLoad method
+      return res.redirect(reactBaseURL);
     });
   })(req, res, next);
+};
+
+var middleware = function(req, res, next) {
+  if (!req.isAuthenticated || !req.isAuthenticated()) {
+    return res.redirect(reactBaseURL + '/login');
+  }
+  next();
+};
+
+var logout = function(req, res) {
+  req.logout();
+  res.redirect('/');
 };
 
 module.exports = {
   strategy: strategy,
   redirectWithScope: redirectWithScope,
-  callback: callback
+  callback: callback,
+  middleware: middleware,
+  logout: logout
 }
