@@ -44,21 +44,13 @@ app.get('/auth/google', controllers.auth.redirectWithScope);
 
 app.get('/auth/google/callback', controllers.auth.callback);
 
-app.get('/auth/check', function(req, res) {
-  res.json({
-    auth: req.isAuthenticated()
-  });
-});
+app.get('/auth/check', controllers.auth.check);
 
 app.use(controllers.auth.middleware);
 
 app.get('/auth/logout', controllers.auth.logout);
 
-app.get('/user', function(req, res) {
-  res.json({
-    user: req.user
-  });
-});
+app.get('/user', controllers.user.info);
 
 app.listen(process.env.PORT, function() {
   console.log("Application running on http://localhost:8000");

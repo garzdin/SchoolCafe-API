@@ -29,6 +29,10 @@ var UserSchema = new Schema({
   },
   photo: {
     type: String
+  },
+  online: {
+    type: Boolean,
+    default: false
   }
 });
 

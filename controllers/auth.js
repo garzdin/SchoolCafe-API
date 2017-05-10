@@ -56,10 +56,17 @@ var logout = function(req, res) {
   res.redirect('/');
 };
 
+var check = function(req, res) {
+  res.json({
+    auth: req.isAuthenticated()
+  });
+};
+
 module.exports = {
   strategy: strategy,
   redirectWithScope: redirectWithScope,
   callback: callback,
   middleware: middleware,
-  logout: logout
+  logout: logout,
+  check: check
 }
