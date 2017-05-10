@@ -17,7 +17,17 @@ var status = function(req, res) {
   });
 };
 
+var onlineUsers = function(req, res) {
+  User.find({ online: true }, function(err, users) {
+    if (err) return res.json({"message": error});
+    res.json({
+      count: users.length
+    });
+  });
+};
+
 module.exports = {
   info: info,
-  status: status
+  status: status,
+  onlineUsers: onlineUsers
 }
