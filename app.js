@@ -51,6 +51,7 @@ app.use(controllers.auth.middleware);
 app.get('/auth/logout', controllers.auth.logout);
 
 app.get('/user', controllers.user.info);
+app.get('/user/status', controllers.user.status);
 
 app.listen(process.env.PORT, function() {
   console.log("Application running on http://localhost:8000");
