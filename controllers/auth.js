@@ -1,7 +1,6 @@
 var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth20').Strategy;
 var User = require('../models/user').model;
-var jwt = require('jwt-simple');
 var reactBaseURL = require('../config').reactBaseURL;
 
 var strategy = new GoogleStrategy({

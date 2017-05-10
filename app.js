@@ -27,7 +27,7 @@ passport.deserializeUser(function(obj, cb) {
 });
 
 app.use(cookieParser());
-app.use(session({ secret: process.env.JWT_SECRET }));
+app.use(session({ secret: process.env.SESSION_SECRET }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(bodyParser.json());
