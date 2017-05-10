@@ -1,0 +1,17 @@
+db:
+  image: mongo:latest
+web:
+  build: .
+  command: node app.js
+  volumes:
+    - .:/code
+  ports:
+    - "8000:8000"
+  links:
+    - db
+  environment:
+    PORT: 8000
+    DB_PORT: 27017
+    GOOGLE_CLIENT_ID: # Google client id
+    GOOGLE_CLIENT_SECRET: # Google client secret
+    SESSION_SECRET: # Session secret token
