@@ -33,6 +33,10 @@ var UserSchema = new Schema({
   online: {
     type: Boolean,
     default: false
+  },
+  teacher: {
+    type: Boolean,
+    default: false
   }
 });
 
