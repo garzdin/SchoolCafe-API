@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
   googleId: {
-    type: Number,
+    type: String,
     require: true,
     index: {
       unique: true
