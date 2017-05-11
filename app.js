@@ -54,6 +54,8 @@ app.get('/user', controllers.user.info);
 app.get('/user/check/in', controllers.user.checkIn);
 app.get('/user/check/out', controllers.user.checkOut);
 
+app.get('/count', controllers.user.studentsCount);
+
 app.get('/time', controllers.time.all);
 
 app.listen(process.env.PORT, function() {

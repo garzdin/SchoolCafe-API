@@ -7,6 +7,15 @@ var info = function(req, res) {
   });
 };
 
+var studentsCount = function(req, res) {
+  User.find({ teacher: false }, function(err, students) {
+    if (err) return res.json({"error": err});
+    res.json({
+      count: students.length
+    });
+  });
+};
+
 var checkIn = function(req, res) {
   Time.create({
     start: Date.now(),
@@ -32,7 +41,7 @@ var checkOut = function(req, res) {
 
 module.exports = {
   info: info,
-  onlineUsers: onlineUsers,
+  studentsCount: studentsCount,
   checkIn: checkIn,
   checkOut: checkOut
 }
