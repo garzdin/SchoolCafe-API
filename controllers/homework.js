@@ -10,13 +10,25 @@ var all = function(req, res) {
 };
 
 var add = function(req, res) {
+  if (!req.user.teacher) {
+    return res.json({"error": "not_teacher"});
+  }
   Homework.create({
     task: req.query.task,
     subject: req.query.subject
   }, function(err, homework) {
-    if (!req.user.teacher) {
-      return res.json({"error": "not_teacher"});
-    }
+    if (err) return res.json({"error": err});
+    res.json({
+      homework: homework
+    });
+  });
+};
+
+var remove = function(req, res) {
+  if (!req.user.teacher) {
+    return res.json({"error": "not_teacher"});
+  }
+  Homework.findByIdAndRemove(req.query.id, function(err, homework) {
     if (err) return res.json({"error": err});
     res.json({
       homework: homework
@@ -26,5 +38,6 @@ var add = function(req, res) {
 
 module.exports = {
   all: all,
-  add: add
+  add: add,
+  remove: remove
 }
