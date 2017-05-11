@@ -7,17 +7,6 @@ var info = function(req, res) {
   });
 };
 
-var status = function(req, res) {
-  User.findByIdAndUpdate(req.user._id, {
-    online: req.query.online === 'true' ? true : false
-  }, function(err, user) {
-    if (err) return res.json({"error": error});
-    res.json({
-      user: user
-    });
-  });
-};
-
 var onlineUsers = function(req, res) {
   User.find({ online: true }, function(err, users) {
     if (err) return res.json({"error": error});
@@ -52,7 +41,6 @@ var checkOut = function(req, res) {
 
 module.exports = {
   info: info,
-  status: status,
   onlineUsers: onlineUsers,
   checkIn: checkIn,
   checkOut: checkOut

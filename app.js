@@ -51,7 +51,6 @@ app.use(controllers.auth.middleware);
 app.get('/auth/logout', controllers.auth.logout);
 
 app.get('/user', controllers.user.info);
-app.get('/user/status', controllers.user.status);
 app.get('/user/check/in', controllers.user.checkIn);
 app.get('/user/check/out', controllers.user.checkOut);
 
