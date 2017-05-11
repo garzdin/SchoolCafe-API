@@ -59,7 +59,7 @@ app.get('/count', controllers.user.studentsCount);
 app.get('/time', controllers.time.all);
 
 app.get('/homework', controllers.homework.all);
-app.post('/homework', controllers.homework.add);
+app.get('/homework/add', controllers.homework.add);
 
 app.listen(process.env.PORT, function() {
   console.log("Application running on http://localhost:8000");

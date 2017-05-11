@@ -11,8 +11,8 @@ var all = function(req, res) {
 
 var add = function(req, res) {
   Homework.create({
-    task: req.body.task,
-    subject: req.body.subject
+    task: req.query.task,
+    subject: req.query.subject
   }, function(err, homework) {
     if (!req.user.teacher) {
       return res.json({"error": "not_teacher"});
