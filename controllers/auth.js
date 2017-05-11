@@ -52,7 +52,7 @@ var middleware = function(req, res, next) {
 
 var logout = function(req, res) {
   req.logout();
-  res.redirect('/');
+  res.redirect(reactBaseURL + '/login');
 };
 
 var check = function(req, res) {
