@@ -14,5 +14,5 @@ var HomeworkSchema = new Schema({
 
 module.exports = {
   schema: HomeworkSchema,
-  model: mongoose.model('Time', HomeworkSchema)
+  model: mongoose.model('Homework', HomeworkSchema)
 };
