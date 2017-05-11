@@ -57,6 +57,8 @@ app.get('/user/check/out', controllers.user.checkOut);
 
 app.get('/users/online', controllers.user.onlineUsers);
 
+app.get('/time', controllers.time.all);
+
 app.listen(process.env.PORT, function() {
   console.log("Application running on http://localhost:8000");
 });
