@@ -30,10 +30,6 @@ var UserSchema = new Schema({
   photo: {
     type: String
   },
-  online: {
-    type: Boolean,
-    default: false
-  },
   teacher: {
     type: Boolean,
     default: false

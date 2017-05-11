@@ -7,15 +7,6 @@ var info = function(req, res) {
   });
 };
 
-var onlineUsers = function(req, res) {
-  User.find({ online: true }, function(err, users) {
-    if (err) return res.json({"error": error});
-    res.json({
-      count: users.length
-    });
-  });
-};
-
 var checkIn = function(req, res) {
   Time.create({
     start: Date.now(),
