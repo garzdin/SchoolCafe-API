@@ -1,10 +1,10 @@
 var Homework = require('../models/homework').model;
 
 var all = function(req, res) {
-  Homework.find({}, function(err, times) {
+  Homework.find({}, function(err, homework) {
     if (err) return res.json({"error": err});
     res.json({
-      times: times
+      homework: homework
     });
   });
 };
